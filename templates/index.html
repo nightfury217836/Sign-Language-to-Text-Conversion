@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🤟 Sign Language Translator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="card">
+    <h1>🤟 Sign Language Translator</h1>
+    <p>Select a mode to translate your signs into text.</p>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button id="uploadTab" class="active">📂 Upload Video</button>
+      <button id="liveTab">🎥 Live Webcam</button>
+    </div>
+
+    <!-- Upload Section -->
+    <div id="uploadSection" class="section">
+      <div id="dropZone">
+        <p>📂 Drag & Drop or Click to Upload</p>
+        <input type="file" id="mediaUpload" accept="video/*, image/*" hidden>
+      </div>
+       <div id="preview"></div>
+    </div>
+
+    <!-- Live Webcam Section -->
+    <div id="liveSection" class="section hidden">
+      <video id="webcam" autoplay playsinline muted></video>
+    </div>
+
+    <!-- Action Button -->
+    <button id="predictBtn">Translate</button>
+    <div id="loader" class="hidden">⏳ Processing...</div>
+
+    <!-- Output -->
+    <div class="output">
+      <h3>Predicted Text</h3>
+      <div id="result"><span id="liveText">---</span></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
